@@ -27,10 +27,10 @@ class _LoginPageState extends State<LoginPage> {
         errorMessage = null;
       });
 
-      // Navigator.pushReplacement(
-      //   context,
-      //   MaterialPageRoute(builder: (context) => const DestinationListPage()),
-      // );
+       Navigator.pushReplacement(
+         context,
+         MaterialPageRoute(builder: (context) => const DestinationListPage()),
+       );
     } else {
       setState(() {
         errorMessage = 'Username atau password salah';
