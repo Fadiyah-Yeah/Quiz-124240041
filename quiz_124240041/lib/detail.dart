@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'DestinationModels.dart';
+import 'destinationModels.dart';
 
 class DetailPage extends StatelessWidget {
   final DestinationModel destinasi;
