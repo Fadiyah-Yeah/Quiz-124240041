@@ -56,9 +56,9 @@ class DetailPage extends StatelessWidget {
                     fit: BoxFit.cover,
                     errorBuilder: (context, error, stackTrace) {
                       return Container(
-                        color: const Color(0xFFC8A27A).withValues(alpha: 0.25),
+                        color: const Color(0xFF95BBEA).withValues(alpha: 0.25),
                         child: const Icon(
-                          Icons.deblur_rounded,
+                          Icons.menu_book_outlined,
                           size: 55,
                           color: Color(0xFF8BAEDB),
                         ),
@@ -88,69 +88,83 @@ class DetailPage extends StatelessWidget {
               style: const TextStyle(color: Color(0xFF9A8880), fontSize: 15),
             ),
 
-            const SizedBox(width: 16),
+            const SizedBox(height: 14),
+
+            Row(
+              children: [
+                const SizedBox(width: 4),
+                Text(
+                  destinasi.location,
+                  style: const TextStyle(
+                    color: Color(0xFF5B4742),
+                    fontSize: 14,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                const SizedBox(width: 16),
+                Container(
+                  width: 4,
+                  height: 4,
+                  decoration: const BoxDecoration(
+                    color: Color(0xFFB6AAA5),
+                    shape: BoxShape.circle,
+                  ),
+                ),
+                const SizedBox(width: 16),
+                Text(
+                  destinasi.openingHours,
+                  style: const TextStyle(
+                    color: Color(0xFF9A8880),
+                    fontSize: 14,
+                  ),
+                ),
+              ],
+            ),
+
+            const SizedBox(height: 25),
+
             Container(
-              width: 4,
-              height: 4,
-              decoration: const BoxDecoration(
-                color: Color(0xFFB6AAA5),
-                shape: BoxShape.circle,
+              height: 1,
+              color: const Color(0xFF95BBEA).withValues(alpha: 0.35),
+            ),
+
+            const SizedBox(height: 22),
+
+            const Text(
+              'About this destination',
+              style: TextStyle(
+                color: Color(0xFF5B4742),
+                fontSize: 19,
+                fontWeight: FontWeight.w700,
               ),
             ),
-            const SizedBox(width: 16),
+
+            const SizedBox(height: 10),
+
             Text(
-              destinasi.location.toString(),
-              style: const TextStyle(color: Color(0xFF9A8880), fontSize: 14),
+              destinasi.description,
+              style: const TextStyle(
+                color: Color(0xFF6B5953),
+                fontSize: 14,
+                height: 1.7,
+              ),
+            ),
+
+            const SizedBox(height: 25),
+
+            Row(
+              children: [
+                Expanded(
+                  child: _buildDetail('Ticket Info', destinasi.ticketInfo),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: _buildDetail('Attraction', destinasi.attraction),
+                ),
+              ],
             ),
           ],
         ),
-
-        const SizedBox(height: 25),
-
-        Container(
-          height: 1,
-          color: const Color(0xFFC8A27A).withValues(alpha: 0.35),
-        ),
-
-        const SizedBox(height: 22),
-
-        const Text(
-          'About this destination',
-          style: TextStyle(
-            color: Color(0xFF5B4742),
-            fontSize: 19,
-            fontWeight: FontWeight.w700,
-          ),
-        ),
-
-        const SizedBox(height: 10),
-
-        Text(
-          destinasi.description,
-          style: const TextStyle(
-            color: Color(0xFF6B5953),
-            fontSize: 14,
-            height: 1.7,
-          ),
-        ),
-
-        const SizedBox(height: 25),
-
-        Row(
-          children: [
-             Expanded(
-               child: _buildDetail('Opening Hours', destinasi.openingHours),
-             ),
-            const SizedBox(width: 12),
-            Expanded(
-              child: _buildDetail('Ticket Info', destinasi.ticketInfo),
-            ),
-          ],
-        ),
-
-        const SizedBox(height: 12),
-
-        _buildDetail('Attraction', destinasi.attraction),
       ),
     );
   }
@@ -159,7 +173,7 @@ class DetailPage extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
       decoration: BoxDecoration(
-        color: const Color(0xFFC8A27A).withValues(alpha: 0.18),
+        color: const Color(0xFF95BBEA).withValues(alpha: 0.18),
         borderRadius: BorderRadius.circular(10),
       ),
       child: Column(
